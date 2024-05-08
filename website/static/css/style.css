@@ -31,6 +31,29 @@ header {
   margin-bottom: 5vh;
 }
 
+
+footer {
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Text color */
+    padding: 1rem; /* Adjust padding as needed */
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Align to the bottom of the viewport */
+    left: 0;
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+    height: 5vh;
+  }
+
+footer pre {
+    margin: 0; /* Remove default margin */
+    margin-right: 15vw;
+    font-family: 'Courier New', Courier, monospace; /* Use monospace font for <pre> */
+}
+
+
 .headerelement {
   margin: 0 0 5px 0; 
 }
@@ -57,4 +80,16 @@ header {
   width: 80%; /* Adjust width as per your preference */
   text-align: center;
   margin: 5px;
+  
+}
+
+.container > div:hover{
+  padding: 1rem;
+  border: 1px solid #000000;
+  width: 80%; /* Adjust width as per your preference */
+  text-align: center;
+  margin: 5px;
+  background-color: palevioletred;
+  transition-duration: 1s;
+  
 }
