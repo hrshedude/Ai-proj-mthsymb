@@ -85,7 +85,7 @@ footer pre {
 
 .container > div:hover{
   padding: 1rem;
-  border: 1px solid #000000;
+  border: 1px solid white;
   width: 80%; /* Adjust width as per your preference */
   text-align: center;
   margin: 5px;
@@ -93,3 +93,10 @@ footer pre {
   transition-duration: 1s;
   
 }
+
+
+#spc:hover{
+  padding: 2rem;
+  color: white;
+}
+
