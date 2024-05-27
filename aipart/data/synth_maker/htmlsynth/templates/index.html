@@ -2,17 +2,68 @@
 <html>
 <head>
     <title>Button Text Update</title>
+
+    <script 
+    src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
 </head>
 <body>
 
     <div id="stuffm">
         <p id="stuff">
-            {{ button_text }}
+            {{ sym_text }}
         </p>
     </div>
 
-    <form action="/" method="POST">
-        <button type="submit">Press 4 luv</button>
-    </form>
+    <!-- <form action="/" method="POST">
+        <button onclick="takeshot()" type="submit" >Press 4 luv</button>
+    </form> -->
+
+    <button onclick="takeshot(), send_post()">Press 4 luv</button>
+
+
+    <div id="output"></div>
+ 
+
+
+    <script type="text/javascript">
+        
+        function send_post() {
+            let data = {element: "barium"};
+
+            fetch(document.URL, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify("data")
+            })
+            };            
+        
+
+        function takeshot() {
+            console.log("nigatook")
+
+            let div =document.getElementById('stuff');
+ 
+            html2canvas(div).then(
+                function (canvas) {
+                    document
+                        .getElementById('output')
+                        .appendChild(canvas);
+
+                    var dataURL = canvas.toDataURL("image/png", 1.0);
+                    downloadImage(dataURL, "{{save_name}}");
+
+                });
+        }
+
+        function downloadImage(data, filename = 'untitled.jpeg') {
+            var a = document.createElement('a');
+            a.href = data;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+        }
+
+    </script>
 </body>
 </html>
