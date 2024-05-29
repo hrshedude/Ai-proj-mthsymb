@@ -27,7 +27,7 @@ def index():
     else:
       sym_text = "Over"
 
-  return render_template("index.html", sym_text=sym_text)
+  return render_template("index.html", sym_text=sym_text, save_name="nigga.png")
 
 if __name__ == "__main__":
   app.run(debug=True)

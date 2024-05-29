@@ -8,8 +8,8 @@ class items_stuff:
 
     nums = "12345567890"
 
-    # all_stuff = alphabets_L+alphabets_U+nums
-    all_stuff = nums
+    all_stuff = alphabets_L+alphabets_U+nums
+    # all_stuff = nums
 
     def __init__(self) -> None:
         self.posat = 0

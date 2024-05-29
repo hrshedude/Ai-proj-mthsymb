@@ -6,6 +6,25 @@
     <script 
     src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
     </script>
+
+    <style>
+        html{
+            background-color: black;
+        }
+
+        #stuff{
+            height: auto;
+            width: auto;
+            color: aqua;
+        }
+
+        canvas{
+            
+            background-color: blueviolet !important ;
+        
+        }
+
+    </style>
 </head>
 <body>
 
@@ -19,7 +38,7 @@
         <button onclick="takeshot()" type="submit" >Press 4 luv</button>
     </form> -->
 
-    <button onclick="takeshot(), send_post()">Press 4 luv</button>
+    <button onclick="send_post(), takeshot_full()">Press 4 luv</button>
 
 
     <div id="output"></div>
@@ -28,7 +47,13 @@
 
     <script type="text/javascript">
         
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        function refresh() {
+            window.location.reload()
+        }
         function send_post() {
+
             let data = {element: "barium"};
 
             fetch(document.URL, {
@@ -36,7 +61,8 @@
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify("data")
             })
-            };            
+            
+        };            
         
 
         function takeshot() {
@@ -49,7 +75,7 @@
                     document
                         .getElementById('output')
                         .appendChild(canvas);
-
+                    
                     var dataURL = canvas.toDataURL("image/png", 1.0);
                     downloadImage(dataURL, "{{save_name}}");
 
@@ -63,6 +89,18 @@
             document.body.appendChild(a);
             a.click();
         }
+
+        async function takeshot_full() {
+            // f = takeshot();
+            // await delay(100)
+            // f.onload = refresh();
+            await takeshot()
+            await delay(100)
+
+            // refresh()
+        }
+
+        
 
     </script>
 </body>
